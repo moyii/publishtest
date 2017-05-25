@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script  src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<title>RunJS 演示代码</title>
+
+  </head>
+<body>
+   
+	<div id="ccc" >
+		
+	</div>
+  </body>
+</html>
+<script>
+$(document).ready(function(){
+	document.getElementById("ccc").innerHTML="2222"
+	
+				test()
+});
+
+function test(){
+	var url = 'http://snap.windin.com/ns/getatt.php?id=85663042&att_id=22373289';
+	//var url = 'http://www.cnblogs.com/cdwp8/p/5157377.html';
+			$.ajax({
+				async:false,
+				type:'get',
+				url:url,
+				//dataType:'JSONP',
+				crossDomain:true,
+ 				beforeSend: function(xhr) {
+        				xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+					xhr.setRequestHeader("Origin", "http://www.cmbc.com.cn");
+   				},
+				success:function(data,code,xhr){
+					alert(1);
+					document.getElementById("ccc").innerHTML="11111"
+					
+					//alert(xhr.getResponseHeader("Content-type"));
+					}
+				
+			});
+}
+</script>
